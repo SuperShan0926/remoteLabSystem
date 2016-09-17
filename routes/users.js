@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-<<<<<<< HEAD
 var DB=require('../db');
 var async = require('asyncawait/async');
 var await = require('asyncawait/await');
@@ -53,17 +52,13 @@ router.post('/register', function(req, res) {
 	 			}
 				const newUser = {username:username,password:password};
 				req.session.user =  newUser;
+				console.log(newUser);
 				await(DB.user.insertAsync(newUser));
 				console.log('??????');
 					res.send('注册成功');
 					res.end();
   })();
-=======
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
->>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
 });
 
 module.exports = router;

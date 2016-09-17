@@ -2,10 +2,7 @@ var async = require('asyncawait/async');
 var await = require('asyncawait/await');
 var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('fs')); // adds Async() versions that return promises
-<<<<<<< HEAD
 var crypto = require('crypto');
-=======
->>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
 
 
 var express = require('express');
@@ -16,14 +13,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-<<<<<<< HEAD
 var angal = require('./routes/angal');
 var users = require('./routes/users');
 var session       = require('express-session');
 var flash         = require('connect-flash');
-=======
-// var users = require('./routes/users');
->>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
+
 
 var app = express();
 
@@ -40,8 +34,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'sb-admin-react/build')));
 // app.use(express.static(path.join(__dirname, 'nowa/dist')));
 app.use(express.static(path.join(__dirname, 'public')));
-<<<<<<< HEAD
-app.use(express.static(path.join(__dirname, 'static')));
 app.use(express.static(path.join(__dirname, 'bundle')));
 app.use(express.static(path.join(__dirname, 'LoginForm')));
 app.use(function(req, res, next) {
@@ -67,44 +59,6 @@ app.use(flash());
 app.use('/', routes);
 app.use('/angal', angal);
 app.use('/user', users);
-
-
-
-
-//user management middleware.
-// var users=require('express-users');
-// var userRouter = users({
-//     store: 'nedb',
-//     nedb: {filename: path.join(__dirname, 'db/user.json')}
-// });
-// app.use(userRouter.passport.initialize());
-// app.use(userRouter.passport.session());
-// app.use(userRouter);
-=======
-
-app.use('/', routes);
-// app.use('/users', users);
-
-//user management middleware need session & flash
-var session       = require('express-session');
-var flash         = require('connect-flash');
-app.use(session({
-    resave: false, // don't save session if unmodified
-    saveUninitialized: false, // don't create session until something stored
-    secret: 'shhhh, very secret'
-}));
-app.use(flash());
-
-//user management middleware.
-var users=require('express-users');
-var userRouter = users({
-    store: 'nedb',
-    nedb: {filename: path.join(__dirname, 'db/user.json')}
-});
-app.use(userRouter.passport.initialize());
-app.use(userRouter.passport.session());
-app.use(userRouter);
->>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
 
 //数据库
 // var nedb = require('nedb');
@@ -152,10 +106,4 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
 module.exports = app;

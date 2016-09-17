@@ -6,17 +6,12 @@ var await = require('asyncawait/await');
 var moment=require('moment');
 var debug = require('debug')('exp:route');
 
-<<<<<<< HEAD
-
 router.get('/',function (req,res) {
 	if(req.session.user){ 
 		console.log('fuck???????');
 		return res.redirect('/public/index.html');}
 	res.redirect('/user/login');
 });
-
-=======
->>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
 router.get('/course', function(req, res, next) {
 
  async(function(){
@@ -66,11 +61,7 @@ router.get('/exp/time/:date/:expDescID',function(req,res,next){
 
 	var date=moment(req.params.date).format('YYYYMMDD');
 	debug(date);
-<<<<<<< HEAD
     async(function(){
-=======
-  async(function(){
->>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
 		var timeslots = await(DB.timeslot.findAsync({}));
 		var orders=timeslots.map(timeslot=>{
 			var order=await(DB.exp.findOneAsync({timeslotID:timeslot._id,date,expDescID}));
@@ -109,11 +100,7 @@ router.post('/order',function(req,res,next){
 		if(!order){
 			res.status(400).end("occupied");
 		}else{
-<<<<<<< HEAD
 			order.studentID=req.session.user._id;
-=======
-			order.studentID="aaa";//暂时写死
->>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
 			order=await(DB.exp.insertAsync(order));
 			res.json(order);
 		}
@@ -128,11 +115,7 @@ router.delete('/order',function(req,res,next){
 	var timeslotID=req.body.time;
 
 	var date=moment(date).format('YYYYMMDD');
-<<<<<<< HEAD
 	var studentID=req.session.user._id;
-=======
-	var studentID="aaa";//应该从sesssion里取得
->>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
 	async(function(){
 		var record={timeslotID,date,studentID};
 		debug(record);
@@ -140,7 +123,7 @@ router.delete('/order',function(req,res,next){
 		debug(numRemoved);
 		res.end("ok");
 	})();
-<<<<<<< HEAD
+
 });
 
 //查询预订情况
@@ -154,10 +137,6 @@ router.get('/orderRecords/:stuId',function (req,res,next) {
 
 
 
-
-=======
-})
->>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
 
 
 module.exports = router;

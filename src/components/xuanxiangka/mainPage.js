@@ -17,7 +17,7 @@ class MainPage extends React.Component {
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                 </button>
-                <a className="navbar-brand" href="blank.html">十六进制在线实验系统</a>
+                <a className="navbar-brand" href="blank.html">在线实验系统</a>
             </div>
             <ul className="nav navbar-top-links navbar-right">
                 <li className="dropdown">

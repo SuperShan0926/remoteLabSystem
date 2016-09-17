@@ -1,24 +1,2 @@
-<<<<<<< HEAD
-{"username":"wqqq","password":"9e9e85e05ee16fc372a0c7df6549fbd4","_id":"4QBepOxMVwbVFj2e"}
-{"username":"ew","password":"79a628b2d968cfe1a7f9c5e398f6b96a","_id":"A8PhtgEwnH3yoM6I"}
-{"username":"wq","password":"099b3b060154898840f0ebdfb46ec78f","_id":"D2OvNZo2uN6QbY2N"}
-{"username":"liuxing","password":"7694f4a66316e53c8cdd9d9954bd611d","_id":"FqGpG07fGTwne4Al"}
-{"username":"ack","password":"82d7ba7ea655a2bbde5a4e2153a66dae","_id":"I7IzQH3ZT1lrGt0t"}
-{"username":"asdd","password":"baa7a52965b99778f38ef37f235e9053","_id":"MpMK7NT1IM725g0p"}
-{"username":"aaa","password":"0cc175b9c0f1b6a831c399e269772661","_id":"NwUFyUDwjRMl7KaF"}
-{"username":"liuxingx","password":"5ba3d8f04ee981992f75862d79a28019","_id":"QXksrnMOrgHK66N1"}
-{"username":"dcf","password":"1eb3aa055e74efd118825142f6ee3e2c","_id":"RgXxIqSZlXHZeNCe"}
-{"username":"ewe","password":"79a628b2d968cfe1a7f9c5e398f6b96a","_id":"TllgmzfhY2LmYj7g"}
-{"username":"dcff","password":"f9cbd32aabc02c049aa4df839f79298f","_id":"UJnIA4EpRn0USEuE"}
-{"username":"s","password":"1ee9cb572c30a8f27ebec15c193d4617","_id":"beuZwiNPxhGkKzUj"}
-{"username":"sd","password":"5dc984e2aef527ea2daaeffe646a6a52","_id":"ehAaDskRraJ7ZQie"}
-{"username":"user","password":"1a1dc91c907325c69271ddf0c944bc72","_id":"inv1QzBNSkt7fjrI"}
-{"username":"dcffd","password":"b9031362c8dd2b03073bff102d3465ed","_id":"jDLn37vvoQHehug6"}
-{"username":"zhouyang","password":"99754106633f94d350db34d548d6091a","_id":"l5ZhuKZjhUAETlf0"}
-{"username":"ass","password":"c12e01f2a13ff5587e1e9e4aedb8242d","_id":"wwNErUGCpAEm4Exv"}
-{"username":"wwwww","password":"6b4dccfb69c362b172bafdfc60c343e1","_id":"yJNvoyhiAhyzcUub"}
-{"username":"a","password":"baa7a52965b99778f38ef37f235e9053","_id":"z2LCbGfRfWi5m92I"}
-=======
-{"$$indexCreated":{"fieldName":"canonicalUsername","unique":true,"sparse":false}}
-{"$$indexCreated":{"fieldName":"canonicalEmail","unique":true,"sparse":false}}
->>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
+{"username":"liuxing","password":"7694f4a66316e53c8cdd9d9954bd611d","_id":"T9DV7dZFF1o3vlO5"}
+{"username":"dcf","password":"7694f4a66316e53c8cdd9d9954bd611d","_id":"TPiUlOSvBymlxaLT"}

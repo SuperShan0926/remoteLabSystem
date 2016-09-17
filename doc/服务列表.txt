@@ -32,11 +32,7 @@ GET /timeslot
 =>
 [{
 	"_id": "1",
-<<<<<<< HEAD
 	"from": "09:00",
-=======
-	"from": "9:00",
->>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
 	"to": "10:00"
 }, {
 	"_id": "2",
@@ -78,11 +74,8 @@ POST /order
  "time":"1"}
 
 * 取消某天某时段预定
-<<<<<<< HEAD
 DEL /order
-=======
-POST /order
->>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
+
 
 {"expdesc":"EAaerJGye1U8eCMb",
  "date":"20150405",

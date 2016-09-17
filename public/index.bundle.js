@@ -23717,7 +23717,7 @@ webpackJsonp([0],[
 	                        _react2.default.createElement(
 	                            'a',
 	                            { className: 'navbar-brand', href: 'blank.html' },
-	                            '十六进制在线实验系统'
+	                            '在线实验系统'
 	                        )
 	                    ),
 	                    _react2.default.createElement(
