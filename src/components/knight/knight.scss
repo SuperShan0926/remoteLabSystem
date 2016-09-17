@@ -1,0 +1,15 @@
+$a = #FFF;
+
+.a{
+	color: $a;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+	li{
+		text-decoration: none;
+	}
+}
+
+@mixin

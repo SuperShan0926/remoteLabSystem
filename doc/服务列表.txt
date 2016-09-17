@@ -1,0 +1,89 @@
+* 取得所有实验列表
+GET /course
+=>
+{
+	"name": "新课程",
+	"_id": "wj0JEjKZiIJW5WjT",
+	"exps": [{
+		"name": "新实验A",
+		"_id": "qEHVAfc20jeoQ87q"
+	}, {
+		"name": "新实验B",
+		"_id": "D8AwCFUR4c57sYH5"
+	}]
+}
+
+* 取得实验可预定日期
+GET /exp/date/:expDescID
+=>
+[
+	"2016-05-01",
+	"2016-05-02",
+	"2016-05-03",
+	"2016-05-04",
+	"2016-05-05",
+	"2016-05-06",
+	"2016-05-07",
+	"2016-05-08"
+]
+
+* 所有时间段
+GET /timeslot
+=>
+[{
+	"_id": "1",
+<<<<<<< HEAD
+	"from": "09:00",
+=======
+	"from": "9:00",
+>>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
+	"to": "10:00"
+}, {
+	"_id": "2",
+	"from": "10:00",
+	"to": "11:00"
+}, {
+	"_id": "3",
+	"from": "13:00",
+	"to": "14:00"
+}, {
+	"_id": "4",
+	"from": "14:00",
+	"to": "15:00"
+}]
+
+
+* 某天某实验各时段的分配状况 
+GET /exp/time/:date/:expDescID
+=>
+[{
+	"timeslot": "1",
+	"user": null
+}, {
+	"timeslot": "2",
+	"user": null
+}, {
+	"timeslot": "3",
+	"user": null
+}, {
+	"timeslot": "4",
+	"user": null
+}]
+
+* 创建某天某时段预定
+POST /order
+
+{"expdesc":"EAaerJGye1U8eCMb",
+ "date":"20150405",
+ "time":"1"}
+
+* 取消某天某时段预定
+<<<<<<< HEAD
+DEL /order
+=======
+POST /order
+>>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
+
+{"expdesc":"EAaerJGye1U8eCMb",
+ "date":"20150405",
+ "time":"1"}

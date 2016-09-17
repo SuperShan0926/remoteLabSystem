@@ -1,0 +1,107 @@
+body {
+  /*padding: 5px;*/
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.left{
+  padding:5px;
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+  height: 100%;
+  box-sizing: border-box;
+  /*background-color: hsl(70,0%,50%);*/
+  /*padding: 5px;*/
+}
+.right{
+  padding: 5px;
+  display: inline-block;
+  vertical-align: top;
+  width: 70%;
+  height: 100%;
+  box-sizing: border-box;
+  /*padding: 5px;*/
+  /*background-color: hsl(50,0%,70%);*/
+}
+
+.col{
+  width: 33%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.brick{
+  width: 100%;
+  height: 40px;
+  margin-bottom:20px;
+  /*background-color: hsl(0,0%,70%);*/
+  /*text-align: center;*/
+  box-shadow:  0 1px 6px rgba(0,0,0,0.3);
+  background-color: #fff;
+
+  overflow: hidden;              /* "overflow" value must be different from "visible" */ 
+  text-overflow: ellipsis;
+}
+
+.brick.create{
+  background-color: #c8e6c9;
+  text-align: center;
+}
+
+.brick.active{
+  /*background-color: hsl(30,0%,90%);*/
+  box-shadow:  0 6px 10px rgba(50,50,255,0.5) 
+}
+.brick.pselected,.brick.colselected{
+  background-color: #E1F5FE;
+}
+.brick.selected{
+  background-color: #B3E5FC;
+  box-shadow:  0 6px 10px rgba(50,50,255,0.5)
+}
+.brick.cselected{
+  background-color: #81D4FA;
+}
+.brick:hover{
+  box-shadow:  0 6px 15px rgba(50,50,255,0.5)
+}
+.full-size{
+  width:100%;
+  height: 100%;
+}
+.cells:after{
+  content:'';
+  display:block;
+  clear:both;
+}
+.cells,.pad{
+  padding: 20px 40px;
+}
+.cell{
+  width: 100px;
+  height: 100px;
+  float:left;
+  margin: 20px;
+  padding: 5px;
+  background-color: hsl(30,50%,80%);
+}
+.cell:hover{
+  background-color: hsl(60,50%,90%);
+}
+.cell.selected{
+  background-color: #5cb85c;
+  color:white;
+}
+.cell, .note{
+  word-wrap: break-word;
+  overflow: hidden;              /* "overflow" value must be different from "visible" */ 
+  text-overflow: ellipsis;
+}
+
+

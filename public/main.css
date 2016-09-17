@@ -1,0 +1,12 @@
+body{
+	background: url(./bundle/bgi.jpg) repeat top left;
+
+}
+#root{
+	margin: 0 auto;
+	background: #FFF;
+	min-height: 800px;
+	padding: 20px 20px;
+	border: 2px solid #eee;
+	overflow: scroll;
+}

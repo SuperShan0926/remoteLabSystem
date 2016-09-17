@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js"> 
+    <head>
+        <meta charset="UTF-8" />
+        <title>Login and Registration Form with HTML5 and CSS3</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Login and Registration Form with HTML5 and CSS3" />
+        <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
+        <meta name="author" content="Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/demoEEE.css" />
+        <link rel="stylesheet" type="text/css" href="css/styleEEE.css" />
+		<link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>十六进制 <span>远程实验登陆系统</span></h1>
+            </header>
+            <section>				
+                <div id="container_demo" >
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form  action="http://localhost:3000/user/login" autocomplete="on" onsubmit="return check()"> 
+                                <h1>登录</h1> 
+                                <p> 
+                                    <label for="username" class="uname" data-icon="u" >用户名</label>
+                                    <input id="username" name="username" required="required" type="text" placeholder="请输入用户名"/>
+                                </p>
+                                <p> 
+                                    <label for="password" class="youpasswd" data-icon="p"> 密码 </label>
+                                    <input id="password" name="password" required="required" type="password" placeholder="请输入密码" /> 
+                                </p>
+                                <p class="login button"> 
+                                    <input type="button" value="登录" onclick="login()"/> 
+								</p>
+                                <p class="change_link">
+									没有账号?
+									<a href="#toregister" class="to_register">加入我们</a>
+								</p>
+                            </form>
+                        </div>
+
+                        <div id="register" class="animate form">
+                            <form  id='submitForm' onsubmit="return check()" method="post" autocomplete="on"> 
+                                <h1>注册</h1> 
+                                <p> 
+                                    <label for="usernamesignup" class="uname" data-icon="u">用户名</label>
+                                    <input id="usernamesignup" name="username" required="required" type="text" placeholder="mysuperusername690" />
+                                    <span id='tips'/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup" class="youpasswd" data-icon="p">密码</label>
+                                    <input id="passwordsignup" name="password" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">请确认您的密码 </label>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                    <span id='tipsPass'/>
+                                </p>
+                                <p class="signin button"> 
+									<input type="button" value="注册" onclick="register()"/> 
+								</p>
+                                <p class="change_link">  
+									<a href="#tologin" class="to_register"> 登录 </a>
+								</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>  
+            </section>
+        </div>
+    <script src='js/loginAndSubmit.js'></script>
+    </body>
+</html>

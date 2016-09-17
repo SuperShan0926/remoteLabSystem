@@ -1,0 +1,12 @@
+{"name":"新实验B","_id":"D8AwCFUR4c57sYH5"}
+<<<<<<< HEAD
+{"name":"新实验B","begin":"2016-09-01","end":"2016-10-01","deskIDs":["222","333"],"_id":"EAaerJGye1U8eCMb"}
+{"name":"新实验","begin":"2016-09-01","end":"2016-09-26","deskIDs":["111","222"],"_id":"W97BFIf5SqFJhVX7"}
+=======
+{"name":"新实验B","begin":"2016-05-01","end":"2016-07-01","deskIDs":["222","333"],"_id":"EAaerJGye1U8eCMb"}
+{"name":"新实验","begin":"2016-01-01","end":"2016-03-01","deskIDs":["111","222"],"_id":"W97BFIf5SqFJhVX7"}
+>>>>>>> 57e5c15884855eacfd7a64418fb8cb49797a4645
+{"name":"新实验","_id":"ZHZtk9iG8oelIFOh"}
+{"name":"新实验A","_id":"qEHVAfc20jeoQ87q"}
+{"name":"新实验","_id":"tbZH5SYj78WD40uc"}
+{"name":"新实验","begin":"2016-01-01","end":"2016-01-01","reportTemp":"aaa","deskIDs":["111"],"_id":"yv7SwpHXLQ7OZneQ"}

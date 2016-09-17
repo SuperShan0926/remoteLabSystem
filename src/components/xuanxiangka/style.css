@@ -1,0 +1,78 @@
+
+/* Tabs Demo 1 */
+.tabs_abc input[type=radio] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+.tabs_abc {
+  width: 800px;
+  float: none;
+  list-style: none;
+  position: static;
+  padding: 0;
+  margin: 10px auto;
+}
+.tabs_abc li{
+  float: left;
+}
+.tabs_abc label {
+    display: block;
+    padding: 10px 20px;
+    border-radius: 2px 2px 0 0;
+    color: #5bc0de;
+    font-size: 14px;
+    font-weight: normal;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    position: relative;
+    top: 3px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.tabs_abc label:hover {
+  background: rgba(255,255,255,0.5);
+  top: 0;
+}
+
+[id^=tab]:checked + label {
+  background: #5bc0de;
+  color: white;
+  top: 0;
+  font-size: 20px;
+}
+
+[id^=tab]:checked ~ [id^=tab-content] {
+    display: block;
+}
+.tab-content_abc{
+  z-index: 2;
+  display: none;
+  text-align: left;
+  width: 785px;
+  font-size: 18px;
+  line-height: 140%;
+  padding-top: 10px;
+  background: #FFF;
+  padding: 15px;
+  position: absolute;
+  top: 80px;
+  left: 46px;
+  box-sizing: border-box;
+  -webkit-animation-duration: 0.5s;
+  -o-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  border-top: 1px solid #eee;
+}
+
+  p{
+    color:#000;
+  }
+  i{
+    color:#000;
+    font-size: 10px;
+    text-align: right;
+  }
