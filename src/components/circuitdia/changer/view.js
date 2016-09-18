@@ -65,13 +65,13 @@ export default class ChangerView extends React.Component {
         return (
               <div className='changer'>
                 <div ref='line' className={itemClasses}> 
-                   <img  src='../components/circuitdia/changer/img/line.png' onClick={this.handleClick.bind(this)}/>
+                   <img  src='../img/circuitdia/changer/line.png' onClick={this.handleClick.bind(this)}/>
                 </div>
                 <div className='leftcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='rightcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
               </div>
             );
@@ -79,13 +79,13 @@ export default class ChangerView extends React.Component {
        return (
               <div className='changer'>
                 <div ref='line' className={itemClasses}> 
-                   <img src='../components/circuitdia/changer/img/line.png' onClick={this.handleClick.bind(this)}/>
+                   <img src='../img/circuitdia/changer/line.png' onClick={this.handleClick.bind(this)}/>
                 </div>
                 <div className='leftupcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='leftcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
               </div>
             );
@@ -96,16 +96,16 @@ export default class ChangerView extends React.Component {
             return (
               <div className='changer'>
                 <div ref='line' className={itemClasses}> 
-                   <img  src='../components/circuitdia/changer/img/line.png' onClick={this.handleClick.bind(this)}/>
+                   <img  src='../img/circuitdia/changer/line.png' onClick={this.handleClick.bind(this)}/>
                 </div>
                 <div className='leftupcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='leftcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='rightcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
               </div>
             );
@@ -113,16 +113,16 @@ export default class ChangerView extends React.Component {
             return (
               <div className='changer'>
                 <div ref='line' className={itemClasses}> 
-                   <img  src='../components/circuitdia/changer/img/line.png' onClick={this.handleClick.bind(this)}/>
+                   <img  src='../img/circuitdia/changer/line.png' onClick={this.handleClick.bind(this)}/>
                 </div>
                 <div className='leftupcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='leftcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='rightupcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
               </div>
             );
@@ -130,16 +130,16 @@ export default class ChangerView extends React.Component {
             return (
               <div className='changer'>
                 <div ref='line' className={itemClasses}> 
-                   <img  src='../components/circuitdia/changer/img/line.png' onClick={this.handleClick.bind(this)}/>
+                   <img  src='../img/circuitdia/changer/line.png' onClick={this.handleClick.bind(this)}/>
                 </div>
                 <div className='rightupcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='leftcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='rightcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
               </div>
             );
@@ -147,16 +147,16 @@ export default class ChangerView extends React.Component {
             return (
               <div className='changer'>
                 <div ref='line' className={itemClasses}> 
-                   <img  src='../components/circuitdia/changer/img/line.png' onClick={this.handleClick.bind(this)}/>
+                   <img  src='../img/circuitdia/changer/line.png' onClick={this.handleClick.bind(this)}/>
                 </div>
                 <div className='rightupcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='leftupcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='rightcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
               </div>
             );
@@ -166,16 +166,16 @@ export default class ChangerView extends React.Component {
             return (
               <div className='changer'>
                 <div ref='line' className={itemClasses}> 
-                   <img  src='../components/circuitdia/changer/img/line.png' onClick={this.handleClick.bind(this)}/>
+                   <img  src='../img/circuitdia/changer/line.png' onClick={this.handleClick.bind(this)}/>
                 </div>
                 <div className='rightupcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='leftupcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='rightcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
               </div>
             );
@@ -183,16 +183,16 @@ export default class ChangerView extends React.Component {
             return (
               <div className='changer'>
                 <div ref='line' className={itemClasses}> 
-                   <img  src='../components/circuitdia/changer/img/line.png' onClick={this.handleClick.bind(this)}/>
+                   <img  src='../img/circuitdia/changer/line.png' onClick={this.handleClick.bind(this)}/>
                 </div>
                 <div className='rightupcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='leftupcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='leftcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
               </div>
             );
@@ -200,16 +200,16 @@ export default class ChangerView extends React.Component {
             return (
               <div className='changer'>
                 <div ref='line' className={itemClasses}> 
-                   <img  src='../components/circuitdia/changer/img/line.png' onClick={this.handleClick.bind(this)}/>
+                   <img  src='../img/circuitdia/changer/line.png' onClick={this.handleClick.bind(this)}/>
                 </div>
                 <div className='rightupcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='leftcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='rightcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
               </div>
             );
@@ -217,16 +217,16 @@ export default class ChangerView extends React.Component {
             return (
               <div className='changer'>
                 <div ref='line' className={itemClasses}> 
-                   <img  src='../components/circuitdia/changer/img/line.png' onClick={this.handleClick.bind(this)}/>
+                   <img  src='../img/circuitdia/changer/line.png' onClick={this.handleClick.bind(this)}/>
                 </div>
                 <div className='leftupcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='leftcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
                 <div className='rightcircle'> 
-                   <img src='../components/circuitdia/changer/img/circle.png'/>
+                   <img src='../img/circuitdia/changer/circle.png'/>
                 </div>
               </div>
             );

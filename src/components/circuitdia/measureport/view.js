@@ -35,9 +35,9 @@ export default class MeasureportView extends React.Component {
   }
 
   render() {  
-    var imgsrcnormal='../components/circuitdia/measureport/img/greenmeasureport.png';
-    var imgsrcch1='../components/circuitdia/measureport/img/bluemeasureport.png';
-    var imgsrcch2='../components/circuitdia/measureport/img/yellowmeasureport.png';
+    var imgsrcnormal='../img/circuitdia/measureport/greenmeasureport.png';
+    var imgsrcch1='../img/circuitdia/measureport/bluemeasureport.png';
+    var imgsrcch2='../img/circuitdia/measureport/yellowmeasureport.png';
     var classNames = require('classnames');
     var positionClasses = classNames({
       'horizontalright': this.props.position=='horizontalright',

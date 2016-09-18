@@ -17,7 +17,7 @@ export default class Channels extends React.Component {
 
   render() {
     return (
-      <div className='channels'>
+      <div className='OSCchannels'>
         <Channel name='CHAN1' host={this.props.host} save={this.saveCh1.bind(this)}/>
         <Channel name='CHAN2' host={this.props.host} save={this.saveCh2.bind(this)}/>
       </div>

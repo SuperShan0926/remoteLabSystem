@@ -31,7 +31,7 @@ export default class ChannelView extends React.Component {
     const {range,scale_range}=this.state;
     // console.log('render',this.state)
     return (
-      <div className='channel'>
+      <div className='OSCchannel'>
         <Label>{name}</Label>
         <div className="row">
           <div className="col-xs-4"> 

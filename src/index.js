@@ -9,6 +9,7 @@ import mainPage from './components/xuanxiangka/mainPage';
 import startExp from './components/xuanxiangka/startExp';
 import dianlutu from './components/xuanxiangka/dianlutu';
 import yiqi from './components/xuanxiangka/yiqi';
+import camera from './components/xuanxiangka/camera';
 
 
 
@@ -48,5 +49,6 @@ ReactDOM.render((<Router history={hashHistory}>
 						<IndexRoute component={dianlutu}/>
 						<Route path='/circuitdia' component={dianlutu}/>
 						<Route path='/equipment' component={yiqi}/>
+						<Route path='/camera' component={camera}/>
 					</Route>
 					</Router>),document.getElementById('root'));

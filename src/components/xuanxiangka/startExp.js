@@ -23,8 +23,10 @@ class StartExp extends React.Component {
                 </Link>
         	</div>
         	<div style={{float:'left',width:'80px',margin:'10px 80px 0',textAlign:'center',height:'40px'}}>
+                <Link to='/camera'>
         			<i style={{fontSize:'23px'}} className='fa fa-camera'></i><br/>
         			<span>摄像</span>
+                </Link>
         	</div>
         </div>
     {/*主体部分*/}
