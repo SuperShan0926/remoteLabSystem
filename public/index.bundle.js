@@ -598,7 +598,8 @@ webpackJsonp([0],[
 	        { onClick: this.handleNextMonth, id: 'rightA' },
 	        '>'
 	      ),
-	      _react2.default.createElement(_reactCalendar.Calendar, { startDate: this.state.date,
+	      _react2.default.createElement(_reactCalendar.Calendar, { locale: 'zh-cn',
+	        startDate: this.state.date,
 	        endDate: this.state.date.clone().add(2, 'month').endOf('month'),
 	        mods: mods })
 	    );

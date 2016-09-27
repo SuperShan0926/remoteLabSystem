@@ -61,7 +61,8 @@ const PagingCalendar = React.createClass({
         <a onClick={this.handleNextMonth} id="rightA">
         &gt;
         </a>
-        <Calendar startDate={ this.state.date }
+        <Calendar locale='zh-cn'
+                  startDate={ this.state.date }
                   endDate={ this.state.date.clone().add(2, 'month').endOf('month') }
                   mods={mods}/>
       </div>
