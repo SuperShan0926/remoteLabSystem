@@ -16,7 +16,7 @@ class Camera extends React.Component {
         canvas.getContext("2d").drawImage(img, 0, 0); 
         var dataURL = canvas.toDataURL('image/jpeg',0.7);
         var dataURLobj={imgData:dataURL};
-        agent.post('http://localhost:3000/uploadImg/'+id,dataURLobj).then(res=>{
+        agent.post('/uploadImg/'+id,dataURLobj).then(res=>{
             alert(res.text);
         })
         
