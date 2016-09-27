@@ -11,13 +11,14 @@ class MyExpView extends React.Component {
     }
     render() {
         const {mySortedExp} = this.props;
+        console.log(mySortedExp);
         if(!mySortedExp){
             return null;
         }
         if(!mySortedExp[0]){
             return <h3><i className="fa fa-plug"></i>您还没有选择任何实验!</h3>
         }
-        //旧实验
+        //旧实验 模拟的数据，所以_id暂时写死为wYF15NTW1OaN1i0k。
         if(mySortedExp[0].time){
             var old = [];
             mySortedExp.forEach((item,index)=>{
@@ -26,7 +27,7 @@ class MyExpView extends React.Component {
                 <a style={{color:'#000',cursor:'default',lineHeight:'100px',margin:'0 80px 0 50px',fontSize:'18px',textDecoration:'none'}}>
                     {moment(item.time).format('LL')+' '+item.exp}
                 </a>
-                    <Link to='/expExport' style={{width:'87px'}} className='btn btn-default'>实验报告</Link>
+                    <Link to='/expExport/wYF15NTW1OaN1i0k' style={{width:'87px'}} className='btn btn-default'>实验报告</Link>
                 </div>);
             }) 
             return (<div>{old}</div>)
@@ -46,7 +47,7 @@ class MyExpView extends React.Component {
                 <a style={{color:'#000',cursor:'default',lineHeight:'100px',margin:'0 80px 0 50px',fontSize:'18px',textDecoration:'none'}}>
                     {moment(item.date).format('LL')+' '+item.expName}
                 </a>
-                {item.fromNow=='开始'?<Link to='/startExp' style={{width:'87px'}} className='btn btn-success'>
+                {item.fromNow=='开始'?<Link to={'/startExp/'+item._id} style={{width:'87px'}} className='btn btn-success'>
                 {item.fromNow}</Link>:<button style={{width:'87px',cursor:'default'}} disabled className='btn btn-default'>{item.fromNow+'后'}</button>}
                 </div>)
         })

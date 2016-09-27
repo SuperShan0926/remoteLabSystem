@@ -1,5 +1,5 @@
 import React from 'react';
-import MyCalendar from '../react-calendar/demo';
+import MyCalendar from './myCalendar';
 require('./default.css');
 require('./style.css');
 var agent = require('superagent-promise')(require('superagent'), Promise);

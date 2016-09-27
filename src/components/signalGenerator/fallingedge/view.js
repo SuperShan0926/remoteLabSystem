@@ -24,7 +24,7 @@ export default class FallingedgeView extends React.Component {
     }
   }
   componentWillUnmount() {
-    this.scaleSubscription.dispose();
+    // this.scaleSubscription.dispose();
   }
 
   changeFallingedge(evt){

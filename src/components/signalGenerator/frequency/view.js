@@ -24,7 +24,7 @@ export default class FreqView extends React.Component {
     }
   }
   componentWillUnmount() {
-    this.scaleSubscription.dispose();
+    // this.scaleSubscription.dispose();
   }
 
   changeFreq(evt){

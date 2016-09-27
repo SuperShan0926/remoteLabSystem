@@ -1,0 +1,122 @@
+
+
+@import '~bootstrap/less/bootstrap.less';
+@import '~bootstrap/less/theme.less';
+a{
+  cursor: pointer;
+}
+
+.cell {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+}
+
+.rc {
+  &-Calendar {
+    &-header {
+      text-align: center;
+      font-weight: bolder;
+    }
+  }
+  &-Month {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 10px 10px;
+    &-header {
+      text-align: center;
+      font-weight: normal;
+      font-size: 18px;
+      color:#000;
+    }
+    &-weekdays {
+      &-weekday {
+        .cell();
+        font-weight: normal;
+        font-size: 14px;
+        color:#000;
+      }
+    }
+    &--current {
+      .rc-Month-header {
+        color: @brand-primary;
+      }
+    }
+  }
+  &-Week {
+    height: 32px;
+    &-number {
+      color: @gray-light;
+      .cell();
+    }
+    &-days {
+      border-left: 1px solid @gray-lighter;
+      border-top: 1px solid @gray-lighter;
+      display: inline-block;
+      span{
+        display: inline-block;
+        height: 32px;
+        width: 32px;
+        line-height: 32px;
+      }
+    }
+    &:last-child {
+      .rc-Week-days {
+        border-bottom: 1px solid @gray-lighter;
+      }
+    }
+    &--current {
+
+    }
+  }
+  &-Day {
+    .cell();
+    border-right: 1px solid @gray-lighter;
+    cursor: default;
+
+
+    &:hover {
+    }
+
+    
+    &--outside {
+      cursor: default;
+      color: @gray-lighter;
+
+      &:hover {
+        background-color: transparent;
+      }
+      
+    }
+    &--event {
+      background-color: @gray-lighter;
+    }
+    &--current {
+      cursor: pointer;
+      background-color: @brand-primary;
+      color:#FFF;
+    }
+    &--longEvent {
+      background-color: @brand-success;
+    }
+    &--warning {
+      background-color: @brand-warning;
+    }
+  }
+}
+
+#leftA{
+  float: left;
+  text-decoration: none;
+  color:purple;
+  font-weight: bolder;
+}
+
+#rightA{
+  float: right;
+  text-decoration: none;
+  color:purple;
+  font-weight: bolder;
+}
+

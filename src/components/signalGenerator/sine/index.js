@@ -21,6 +21,16 @@ export default class Sine extends React.Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+   if(nextProps.data){
+    this.setState({ Hstate:nextProps.data.Hstate,
+                    Horder:nextProps.data.Horder,
+                    Hamp:nextProps.data.Hamp,
+                    Hphase:nextProps.data.Hphase,
+                    Htype:nextProps.data.Htype});
+   }     
+  }
+
   render() {
     const {host,name}=this.props;
     console.log('Sine.this.props',this.props);

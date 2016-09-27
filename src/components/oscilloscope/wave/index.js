@@ -36,6 +36,13 @@ export default class Wave extends React.Component {
   componentWillUnmount() {
     clearInterval(this.interval);
   }
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.data){
+    this.setState({ch1:nextProps.data.ch1});
+    this.setState({ch2:nextProps.data.ch2});
+    this.forceUpdate();
+    }
+  }
 
   render() {
     this.props.save(this.state);

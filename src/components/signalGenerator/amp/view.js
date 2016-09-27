@@ -24,7 +24,7 @@ export default class AmpView extends React.Component {
     }
   }
   componentWillUnmount() {
-    this.scaleSubscription.dispose();
+    // this.scaleSubscription.dispose();
   }
 
   changeAmp(evt){

@@ -14,10 +14,15 @@ export default class Trig extends React.Component {
     this.state={
       mode:'EDGE',
       source:'EDGE'
-
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+   if(nextProps.data){
+    this.setState({mode:nextProps.data.mode,source:nextProps.data.source});
+    this.forceUpdate();
+   }
+  }
   render() {
     this.props.save(this.state);
     return (

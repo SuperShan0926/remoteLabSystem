@@ -15,6 +15,14 @@ export default class Sweep extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {sweep:'AUTO'};
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.data){
+      this.setState({sweep:nextProps.data.sweep});
+      this.forceUpdate();
+    }     
   }
 
   render() {
@@ -32,7 +40,7 @@ export default class Sweep extends React.Component {
     console.log('setsweep',value);
     const {host}=this.props;
     agent.post(host+'/DS-TRIGsweep?TrigSweep='+value).then(res => {
-      this.setState({'setsweep':value});
+      this.setState({'sweep':value});
     });
   }
 }

@@ -16,6 +16,14 @@ export default class Chan extends React.Component {
   constructor(props) {
     super(props);
     this.chan = {};
+    this.data = {};
+  }
+
+  componentWillReceiveProps(nextProps) {
+     if(nextProps.data){
+      this.data = nextProps.data;
+      this.forceUpdate();
+    }
   }
 
   render() {
@@ -23,19 +31,19 @@ export default class Chan extends React.Component {
     console.log('props-in-chan',this.props);
     return (
       <div className='chan'>
-        <Output save={this.saveOutput.bind(this)}></Output>
+        <Output save={this.saveOutput.bind(this)} data={this.data.output}/>
         <Tabs defaultActiveKey={1}>
           <Tab eventKey={1} title="Sine">
-            <Sine name={name} host={host} save={this.saveSine.bind(this)}/>
+            <Sine name={name} host={host} save={this.saveSine.bind(this)} data={this.data.sine}/>
           </Tab>
           <Tab eventKey={2} title="Ramp">
-            <Ramp name={name} host={host} save={this.saveRamp.bind(this)}/>
+            <Ramp name={name} host={host} save={this.saveRamp.bind(this)} data={this.data.ramp}/>
           </Tab>
           <Tab eventKey={3} title="Square">
-            <Square name={name} host={host} save={this.saveSquare.bind(this)}/>
+            <Square name={name} host={host} save={this.saveSquare.bind(this)} data={this.data.square}/>
           </Tab>
           <Tab eventKey={4} title="Pulse">
-            <Pulse name={name} host={host} save={this.savePulse.bind(this)}/>
+            <Pulse name={name} host={host} save={this.savePulse.bind(this)} data={this.data.pulse}/>
           </Tab>
            <Tab eventKey={5} title="Noise">
            

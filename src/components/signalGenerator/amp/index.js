@@ -18,6 +18,12 @@ export default class Amp extends React.Component {
     this.setAmp=_.debounce(this._setAmp,1000, true);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.data){
+      this.setState({amp:nextProps.data});
+    }     
+  }
+
   render() {
     return (
       <AmpView changeAmp={this.setAmp.bind(this)}/>

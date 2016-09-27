@@ -16,16 +16,29 @@ export default class Channel extends React.Component {
 
   constructor(props) {
     super(props);
+    this.data = {};
     this.state={
-      ChannelControl:"OFF",
-      ChannelInvert:"OFF",
-      VerticalOffset: 0,
-      VerticalScale:0.0005,
-      InputCoupling:"AC",
-      InputImpedance:"50",
+      channelControl:"OFF",
+      channelInvert:"OFF",
+      verticalOffset: 0,
+      verticalScale:0.0005,
+      inputCoupling:"AC",
+      inputImpedance:"50",
       range:{min:-10,max:20},
       scale_range:{min:-10,max:20},
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.data){
+      debugger;
+      this.channelControl(nextProps.data.channelControl);
+      this.channelInvert(nextProps.data.channelInvert);
+      this.setVerticalOffset(nextProps.data.verticalOffset);
+      this.setVerticalScale(nextProps.data.verticalScale);
+      this.inputCoupling(nextProps.data.inputCoupling);
+      this.inputImpedance(nextProps.data.inputImpedance);
+      }     
   }
 
   render() {
@@ -42,16 +55,18 @@ export default class Channel extends React.Component {
       pinputImpedance ={this.inputImpedance.bind(this)}
       range={this.state.range}
       scale_range={this.state.scale_range}
+      channelControl={this.state.channelControl}
+      channelInvert={this.state.channelInvert}
+      verticalOffset={this.state.verticalOffset}
+      verticalScale={this.state.verticalScale}
+      inputImpedance={this.state.inputImpedance}
+      inputCoupling={this.state.inputCoupling}
       />
     );
   }
 
   getRange(){
-    // console.log('getRange');
-
     const {name,host}=this.props;
-  
-
     //范围检查
     agent.get(host+'/DS-VOffset-Range?Channel='+name).then(res=>{
       var range=res.body;
@@ -72,11 +87,11 @@ export default class Channel extends React.Component {
   //C_V1
   channelControl(value){
     console.log('channelControl',value);
+    debugger;
     const {host,name}=this.props;
     agent.post(host+'/DS-CHANnel?Channel='+name+'&State='+value).then(res => {
-      this.setState({'ChannelControl':value});
+      this.setState({'channelControl':value});
     }); 
-    this.setState({'ChannelControl':"6666"});
   }
 
     //C_V2
@@ -84,7 +99,7 @@ export default class Channel extends React.Component {
     console.log('channelInvert',value);
     const {host,name}=this.props;
     agent.post(host+'/DS-INVert?Channel='+name+'&INVert='+value).then(res => {
-      this.setState({'ChannelInvert':value});
+      this.setState({'channelInvert':value});
     }); 
   }
 
@@ -94,7 +109,7 @@ export default class Channel extends React.Component {
     console.log('VerticalOffset',value);
     const {name,host}=this.props;
     const {range}=this.state;
-    console.log('range',range.min,range.max);
+    // console.log('range',range.min,range.max);
 
     var revalue=0;
     if( value < range.max && value > range.min ){
@@ -109,22 +124,8 @@ export default class Channel extends React.Component {
 
     //更新值
     agent.post(host+'/DS-OFFSet?Channel='+name+'&OFFSet='+revalue).then(res => {
-      // console.log(res);
-      this.setState({'VerticalOffset':revalue});
+      this.setState({'verticalOffset':revalue});
     }); 
-
-    //每当C_V3发生变化，应调用Get Trig Level Range [/DS-TLevel-Range{?}]更新C_T1控件的设定范围
-    //Get Trig Level Range();
-    // agent.get(host+'/DS-TLevel-Range？').then(res => {
-    //   //this.setState({'measurement':res.body.MEASvalue});
-    //   //"Vertical Offset Range":{"min":"值","max":"值"}
-    // });
-
-    //更新CT1控件
-    // agent.post(host+'/DS-TRIGlevel?Channel='+name+'&DS-TLevel=').then(res => {
-    //   // console.log(res);
-    //   //this.setState({'VerticalOffset':revalue});
-    // }); 
   }
 
     //C_V4
@@ -146,7 +147,7 @@ export default class Channel extends React.Component {
     }
     console.log(revalue);
     agent.post(host+'/DS-SCAL?Channel='+name+'&SCAL='+revalue).then(res => {
-      this.setState({'VerticalScale':revalue});
+      this.setState({'verticalScale':revalue});
     }); 
 
 
@@ -161,7 +162,7 @@ export default class Channel extends React.Component {
     const {name,host}=this.props;
 
     agent.post(host+'/DS-COUPling?Channel='+name+'&Type='+value).then(res => {
-      this.setState({'InputCoupling':value});
+      this.setState({'inputCoupling':value});
     }); 
   }
 
@@ -171,7 +172,8 @@ export default class Channel extends React.Component {
     const {name,host}=this.props;
 
     agent.post(host+'/DS-IMPedance?Channel='+name+'&Imp='+value).then(res => {
-      this.setState({'InputImpedance':value});
+      debugger;
+      this.setState({'inputImpedance':value});
     }); 
 
     //C_V6发生变化，应调用Get Voltage Offset Range [/DS-VOffset-Range{?Channel}]更新C_V3控件的设定范围；

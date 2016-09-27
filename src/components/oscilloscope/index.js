@@ -17,6 +17,12 @@ export default class Oscilloscope extends React.Component {
   constructor(props) {
     super(props);
     this.osc = {};
+    this.data = {};
+  }
+
+  componentWillReceiveProps(nextProps) {
+      this.data = nextProps.data;
+      this.forceUpdate();
   }
   
   render() {
@@ -25,11 +31,11 @@ export default class Oscilloscope extends React.Component {
     return (
       <div className='oscilloscope'>
         <Level  host={host} save={this.saveLevel.bind(this)}/>
-        <Wave  host={host} save={this.saveWave.bind(this)}/>
-        <Time  host={host} save={this.saveTime.bind(this)}/>
-        <Channels  host={host} save={this.saveChannels.bind(this)}/>
-        <Trig  host={host} save={this.saveTrig.bind(this)}/>
-        <Sweep  host={host} save={this.saveSweep.bind(this)}/>
+        <Wave  host={host} save={this.saveWave.bind(this)}  data={this.data.wave}/>
+        <Time  host={host} save={this.saveTime.bind(this)}  data={this.data.time}/>
+        <Channels  host={host} save={this.saveChannels.bind(this)}  data={this.data.channels}/>
+        <Trig  host={host} save={this.saveTrig.bind(this)}  data={this.data.trig}/>
+        <Sweep  host={host} save={this.saveSweep.bind(this)}  data={this.data.sweep}/>
       </div>
     );
   }

@@ -8,7 +8,6 @@ var debug = require('debug')('exp:route');
 
 router.get('/',function (req,res) {
 	if(req.session.user){ 
-		console.log('fuck???????');
 		return res.redirect('/public/index.html');}
 	res.redirect('/user/login');
 });
@@ -134,6 +133,53 @@ router.get('/orderRecords/:stuId',function (req,res,next) {
        res.json(record);
    })();
 });
+
+//插入所有实验数据
+router.post('/postdata/:expId',function (req,res) {
+	var expId = req.params.expId;
+	async(function(){
+	await(DB.exp.update({_id:expId },
+		{ $push:{datas:req.body } }
+	));
+	res.json(req.body);
+})();	
+});
+
+//获得实验数据以恢复现场
+router.get('/data/:expId',function (req,res) {
+	var expId = req.params.expId;
+	async(function(){	
+	var d = await(DB.exp.findAsync({_id:expId})),
+			data = d[0].datas,
+			len = data.length;
+	res.json(data[len-1]);
+})();	
+});
+
+//图片当作base64编码存入数据库。
+router.post('/uploadImg/:expId',function(req,res) {
+	var expId = req.params.expId,
+		imgData = req.body.imgData;
+		async(function() {
+		await(DB.exp.update({_id:expId },
+		{ $push:{imgData:imgData}}
+	));
+		res.end('图片保存成功!');
+	})();
+
+});
+
+router.get('/imgsReview/:expId',function(req,res) {
+	var expId = req.params.expId;
+		async(function() {
+		ret = await(DB.exp.findAsync({_id:expId }));
+		res.json(ret[0].imgData);
+	})();
+
+});
+
+
+
 
 
 

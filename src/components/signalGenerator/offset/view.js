@@ -25,7 +25,7 @@ export default class OffsetView extends React.Component {
   }
   
   componentWillUnmount() {
-    this.scaleSubscription.dispose();
+    // this.scaleSubscription.dispose();
   }
 
   changeOffset(evt){

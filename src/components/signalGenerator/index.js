@@ -1,12 +1,6 @@
 import React from 'react';
 require ('./signalGenerator.less');
 import Chans from './chans';
-// import Time from './time';
-// import Channels from './channels';
-// import Trig from './trig';
-// import Level from './level';
-// import Sweep from './sweep';
-
 
 export default class SignalGenerator extends React.Component {
   static propTypes = {
@@ -16,13 +10,21 @@ export default class SignalGenerator extends React.Component {
 
   constructor(props) {
     super(props);
+    this.data = {};
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.data){
+      this.data = nextProps.data;
+      this.forceUpdate();
+    }     
   }
   
   render() {
     const {host}=this.props;
     return (
       <div className='signalGenerator' >
-        <Chans host={host} save={this.props.save}/>
+        <Chans host={host} save={this.props.save} data={this.data}/>
       </div>
     );
   }

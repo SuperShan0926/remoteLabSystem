@@ -11,15 +11,20 @@ export default class Channels extends React.Component {
 
   constructor(props) {
     super(props);
-    this.chans = {
-    };
+    this.chans = {};
+    this.data = {};
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.data = nextProps.data;
+    this.forceUpdate();
   }
 
   render() {
     return (
       <div className='OSCchannels'>
-        <Channel name='CHAN1' host={this.props.host} save={this.saveCh1.bind(this)}/>
-        <Channel name='CHAN2' host={this.props.host} save={this.saveCh2.bind(this)}/>
+        <Channel name='CHAN1' host={this.props.host} save={this.saveCh1.bind(this)} data={this.data.chan1}/>
+        <Channel name='CHAN2' host={this.props.host} save={this.saveCh2.bind(this)} data={this.data.chan2}/>
       </div>
     );
   }

@@ -15,8 +15,10 @@ export default class Freq extends React.Component {
     this.state={
       freq:0.00005
     };
+    this.data={};
     this.setFreq=_.debounce(this._setFreq,1000, true);
   }
+
 
   render() {
     return (

@@ -7,9 +7,8 @@ import newExp from './components/xuanxiangka/newExp';
 import oldExp from './components/xuanxiangka/oldExp';
 import mainPage from './components/xuanxiangka/mainPage';
 import startExp from './components/xuanxiangka/startExp';
-import dianlutu from './components/xuanxiangka/dianlutu';
-import yiqi from './components/xuanxiangka/yiqi';
-import camera from './components/xuanxiangka/camera';
+import expExport from './components/xuanxiangka/expExport';
+
 
 
 
@@ -42,13 +41,13 @@ ReactDOM.render((<Router history={hashHistory}>
 							<Route path='/newExp' component={newExp}/>
 							<Route path='/oldExp' component={oldExp}/>
 						</Route>
+						<Route path='/expExport/:id' component={expExport}/>
 						<Route path='/arrangeExp' component={Yuyue}/>
 						<Route path='/expGrade' component={world}/>
 					</Route>
-					<Route path='/startExp' component={startExp}>
-						<IndexRoute component={dianlutu}/>
+					<Route path='/startExp/:id' component={startExp}/>
+						{/*<IndexRoute component={dianlutu}/>
 						<Route path='/circuitdia' component={dianlutu}/>
 						<Route path='/equipment' component={yiqi}/>
-						<Route path='/camera' component={camera}/>
-					</Route>
+						<Route path='/camera' component={camera}/>*/}
 					</Router>),document.getElementById('root'));

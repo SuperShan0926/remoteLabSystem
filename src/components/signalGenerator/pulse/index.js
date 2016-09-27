@@ -14,18 +14,17 @@ export default class Pulse extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {};
   }
 
   render() {
     return (
       <div className='pulse'>
-      	  <Freq/>
-          <Amp/>
-          <Offset/>
-          <Phase/>
-          <Duty/>
-          <Risingedge/>
-          <Fallingdege/>
+          <Freq />
+          <Amp />
+          <Offset />
+          <Phase />
+          <Duty />
       </div>
     );
   }

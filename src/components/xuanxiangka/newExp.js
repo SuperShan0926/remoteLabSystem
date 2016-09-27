@@ -11,7 +11,7 @@ class NewExp extends React.Component {
     }
 
     componentDidMount() {
-        agent.get('http://localhost:3000/user').then(res=>{
+        agent.get('/user').then(res=>{
             const user = JSON.stringify(res.body);
             window.sessionStorage.setItem('user',user);
             var stu = JSON.parse(sessionStorage.getItem('user'));
@@ -44,16 +44,16 @@ class NewExp extends React.Component {
     }
 
     fetchData(stuId){
-            agent.get("http://localhost:3000/course").then(res=> {
+            agent.get("/course").then(res=> {
             return res.body;
           }).then((course)=>{
-            agent.get("http://localhost:3000/timeslot").then(resp=>{
+            agent.get("/timeslot").then(resp=>{
               return resp.body;
             }).then(timeSlot=>{
               //放入localstorage减少请求。
             		window.localStorage.setItem("course",JSON.stringify(course));
             		window.localStorage.setItem("timeSlot",JSON.stringify(timeSlot));
-                  agent.get("http://localhost:3000/orderRecords/"+stuId).then(res=>{
+                  agent.get("/orderRecords/"+stuId).then(res=>{
                   var sorted = res.body.sort(this.sortByAttr('date'));
 					for(let n=0;n<sorted.length;n++){
                     if(n<sorted.length-1&&sorted[n].date!==sorted[n+1].date){

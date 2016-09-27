@@ -18,6 +18,12 @@ export default class Duty extends React.Component {
     this.setDuty=_.debounce(this._setDuty,1000, true);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.data){
+      this.setState({duty:nextProps.data});
+    }
+  }
+
   render() {
     return (
       <DutyView changeDuty={this.setDuty.bind(this)}/>

@@ -24,7 +24,7 @@ export default class RisingedgeView extends React.Component {
     }
   }
   componentWillUnmount() {
-    this.scaleSubscription.dispose();
+    // this.scaleSubscription.dispose();
   }
 
   changeRisingedge(evt){

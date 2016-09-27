@@ -12,16 +12,17 @@ export default class Square extends React.Component {
 
   constructor(props) {
     super(props);
+    this.data = {};
   }
 
   render() {
     return (
       <div className='square'>
-      	  <Freq/>
-          <Amp/>
-          <Offset/>
-          <Phase/>
-          <Duty/>
+            <Freq />
+            <Amp />
+            <Offset />
+            <Phase />
+            <Duty />
       </div>
     );
   }

@@ -24,7 +24,7 @@ export default class DutyView extends React.Component {
     }
   }
   componentWillUnmount() {
-    this.scaleSubscription.dispose();
+    // this.scaleSubscription.dispose();
   }
 
   changeDuty(evt){

@@ -24,7 +24,7 @@ export default class PhaseView extends React.Component {
     }
   }
   componentWillUnmount() {
-    this.scaleSubscription.dispose();
+    // this.scaleSubscription.dispose();
   }
 
   changePhase(evt){

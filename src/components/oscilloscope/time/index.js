@@ -17,12 +17,6 @@ export default class Time extends React.Component {
     this.setPosition = _.debounce(this._setPosition,1000,true);
   }
 
-  render() {
-    this.props.save(this.state);
-    return (
-      <TimeView changeScale={this.setTimeScale.bind(this)} chagePosition={this.setPosition.bind(this)}/>
-    );
-  }
 
   _setTimeScale(value){
     console.log('setTimeScale',value);
@@ -38,6 +32,20 @@ export default class Time extends React.Component {
     agent.post(host+'/DS-TIMoffset?TIMOFFSET='+value).then(res => {
       this.setState({'Position':value});
     }).catch(err=>console.log(err));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.data){
+      this.setState({position:nextProps.data.Position,TimeScale:nextProps.data.TimeScale});
+      this.forceUpdate();
+    }
+  }
+
+  render() {
+    this.props.save(this.state);
+    return (
+      <TimeView changeScale={this.setTimeScale.bind(this)} chagePosition={this.setPosition.bind(this)}/>
+    );
   }
 
 
