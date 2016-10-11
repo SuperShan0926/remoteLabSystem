@@ -173,6 +173,7 @@ router.get('/imgsReview/:expId',function(req,res) {
 	var expId = req.params.expId;
 		async(function() {
 		ret = await(DB.exp.findAsync({_id:expId }));
+		if(!ret[0]){res.json([])};
 		res.json(ret[0].imgData);
 	})();
 
