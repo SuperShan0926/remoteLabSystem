@@ -24,6 +24,14 @@ httpProxy = require('http-proxy');
 // Create a proxy server with custom application logic
 //
 var proxy = httpProxy.createProxyServer({auth:"admin:"});
+proxy.on('error', function (err, req, res) {
+  res.writeHead(500, {
+    'Content-Type': 'text/plain'
+  });
+
+  res.end('Something went wrong. And we are reporting a custom error message.');
+});
+
 var app = express();
 
 // view engine setup
@@ -78,11 +86,11 @@ app.use('/api/device', expressRestResource({ db: DB.device }));
 app.use('/api/config', expressRestResource({ db: DB.config }));
 app.use('/api/timeslot', expressRestResource({ db: DB.timeslot }));
 
-// app.use(function(req, res) {
-//   // You can define here your custom logic to handle the request
-//   // and then proxy the request.
-//   proxy.web(req, res, { target: 'http://192.168.3.110:81' });
-// })
+app.use('/camera01',function(req, res) {
+  // You can define here your custom logic to handle the request
+  // and then proxy the request.
+  proxy.web(req, res, { target: 'http://192.168.3.113:81' });
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

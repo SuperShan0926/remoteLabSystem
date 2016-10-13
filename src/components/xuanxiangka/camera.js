@@ -30,8 +30,7 @@ class Camera extends React.Component {
             className='btn btn-success'
             onClick={this.handleClick.bind(this)}
             >保存实验截图</button>
-            {/*<img src='/videostream.cgi?loginuse=admin&loginpas=' alt='这里是视频' ref='img'/>*/}
-        	<img alt='这里是视频' ref='img'/>
+            <img src='/camera01/videostream.cgi?loginuse=admin&loginpas=' alt='这里是视频' ref='img'/>
             <canvas ref='canvas' style={{display:'none'}}/>
         </div>;
     }
