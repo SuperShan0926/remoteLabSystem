@@ -32,7 +32,7 @@ export default class Chan extends React.Component {
     return (
       <div className='chan'>
         <Output save={this.saveOutput.bind(this)} data={this.data.output}/>
-        <Tabs defaultActiveKey={1}>
+        <Tabs defaultActiveKey={1} id="minimanihong">
           <Tab eventKey={1} title="Sine">
             <Sine name={name} host={host} save={this.saveSine.bind(this)} data={this.data.sine}/>
           </Tab>

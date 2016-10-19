@@ -1,8 +1,6 @@
 import React from 'react';
 require('./channel.less');
 import {Label,FormControl} from 'react-bootstrap';
-var Rx = require('rx');
-// console.log('Input',Input)
 
 export default class ChannelView extends React.Component {
   static propTypes = {
@@ -11,24 +9,10 @@ export default class ChannelView extends React.Component {
 
   constructor(props) {
     super(props);
-    // this.state = props;
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({
-  //       range:nextProps.range,
-  //       scale_range:nextProps.scale_range,
-  //       channelControl:nextProps.channelControl,
-  //       channelInvert:nextProps.channelInvert,
-  //       verticalOffset:nextProps.verticalOffset,
-  //       verticalScale:nextProps.verticalScale,
-  //       inputCoupling:nextProps.inputCoupling,
-  //       inputImpedance:nextProps.inputImpedance,
-  //   });
-  // }
 
   render() {
-    debugger;
     const {name,range,scale_range,inputCoupling,inputImpedance,verticalOffset,verticalScale,channelControl,channelInvert}=this.props;
     const Ickd = (channelInvert=="ON"?true:false);
     const Cckd = (channelControl=="ON"?true:false);
@@ -46,8 +30,8 @@ export default class ChannelView extends React.Component {
         </div>
 
         <form className="form-horizontal" >
-          <input onChange={this.setVerticalOffset.bind(this)} type="number" label="Offset" labelClassName="col-xs-4" wrapperClassName="col-xs-8"  placeholder="0" max={range.max} min={range.min} value={verticalOffset}/>
-          <input onChange={this.setVerticalScale.bind(this)} type="number" label="Scale" labelClassName="col-xs-4" wrapperClassName="col-xs-8" placeholder="0" max={scale_range.max} min={scale_range.min} value={verticalScale}/>
+          <input onChange={this.setVerticalOffset.bind(this)} type="number" label="Offset"  placeholder="0" max={range.max} min={range.min} value={verticalOffset}/>
+          <input onChange={this.setVerticalScale.bind(this)} type="number" label="Scale" placeholder="0" max={scale_range.max} min={scale_range.min} value={verticalScale}/>
           <div className="row"> 
             <div className="col-xs-4">Input Couping</div>
             <div className="col-xs-8">
@@ -89,8 +73,6 @@ export default class ChannelView extends React.Component {
   }
 
   channelInvert(evt){
-    //console.log("Clicked, new value = "+evt.target.checked);
-    //console.log("Clicked, new value = "+this.refs.inv_switch.checked);
     var ch_inv=(evt.target.checked)?"ON":"OFF";
     if(this.props.pchangeInvert){
       this.props.pchangeInvert(ch_inv);

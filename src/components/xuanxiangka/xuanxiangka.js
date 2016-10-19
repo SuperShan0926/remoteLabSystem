@@ -28,13 +28,13 @@ class Xuanxiangka extends React.Component {
     }
 
     fetchData(stuId){
-            agent.get("http://localhost:3000/course").then(res=> {
+            agent.get("/course").then(res=> {
             return res.body;
           }).then((course)=>{
-            agent.get("http://localhost:3000/timeslot").then(resp=>{
+            agent.get("/timeslot").then(resp=>{
               return resp.body;
             }).then(timeSlot=>{
-                  agent.get("http://localhost:3000/orderRecords/"+stuId).then(res=>{
+                  agent.get("/orderRecords/"+stuId).then(res=>{
                   var sorted = res.body.sort(this.sortByAttr('date'));
                   if(sorted.length===1){var nearly = sorted[0]}
                     else{for(let n=0;n<sorted.length;n++){

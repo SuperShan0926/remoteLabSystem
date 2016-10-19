@@ -29,7 +29,7 @@ class MainPage extends React.Component {
                         </li>
                         <li><a href="#"><i className="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
-                        <li><a href="http://localhost:3000/user/logout"><i className="fa fa-sign-out fa-fw"></i> 登出</a>
+                        <li><a href="/user/logout"><i className="fa fa-sign-out fa-fw"></i> 登出</a>
                         </li>
                     </ul>
                 </li>

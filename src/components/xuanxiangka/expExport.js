@@ -53,7 +53,7 @@ class ExpReport extends React.Component {
 
     componentDidMount() {
       const {id} = this.props.params;
-      var url = 'http://localhost:3000/imgsReview/'+id;
+      var url = '/imgsReview/'+id;
       agent.get(url).then(res=>{
         res.body.forEach((item,i)=>{
           this.imgs.push(item);

@@ -15,7 +15,6 @@ function check() {
 function register() {
 	var a = $('#usernamesignup').val().trim();
 	var b = $('#passwordsignup').val().trim();
-	debugger;
 	if($('#usernamesignup').val().trim()===''){
 		$('#tips').html('用户名不能为空!');
 		$('#tips').css({color: 'red'});
@@ -31,7 +30,7 @@ function register() {
 		$('#tipsPass').css({color: 'red'});
 		return;
 	}
-	$.post('http://localhost:3000/user/register',{
+	$.post('/user/register',{
 		username:$('#usernamesignup').val().trim(),
 		password:$('#passwordsignup').val().trim()
 	},function (data) {
@@ -43,13 +42,13 @@ function register() {
 }
 
 function login() {
-	$.post('http://localhost:3000/user/login',{
+	$.post('/user/login',{
 		username:$('#username').val().trim(),
 		password:$('#password').val().trim()
 	},function (data) {
 		alert(data);
 		if(data.toString()==='登录成功!'){
-			location.href='http://localhost:3000/index.html';
+			location.href='/index.html';
 		}
 	});
 }

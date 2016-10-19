@@ -9,7 +9,7 @@ class HasOrdered extends React.Component {
     cancelExp(){
     	var r = confirm('confirm cancel?');
     	if(r){
-    		agent.get("http://localhost:3000/cancelOrder").then(res=>{
+    		agent.get("/cancelOrder").then(res=>{
     			alert('deleted!!');
     		});
     	}else{

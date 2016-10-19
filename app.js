@@ -44,11 +44,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'sb-admin-react/build')));
-// app.use(express.static(path.join(__dirname, 'nowa/dist')));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'bundle')));
-app.use(express.static(path.join(__dirname, 'LoginForm')));
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -72,6 +68,10 @@ app.use(flash());
 app.use('/', routes);
 app.use('/angal', angal);
 app.use('/user', users);
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'bundle')));
+app.use(express.static(path.join(__dirname, 'LoginForm')));
 
 //数据库
 // var nedb = require('nedb');

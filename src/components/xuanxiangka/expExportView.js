@@ -86,7 +86,6 @@ class ExpExportView extends React.Component {
        		 <button className='btn btn-default' onClick={addTextBlock}><i className='fa fa-edit'></i>文字</button>
         	 &nbsp;&nbsp;&nbsp;
         	 <button className='btn btn-default' onClick={this.chooseImg.bind(this)}><i className='fa fa-image'></i>图片</button>
-           <img id='plus' src='/img/plus.png'/>
           </div>
           </div>
         </div>)

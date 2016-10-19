@@ -55,13 +55,13 @@ export default class SineView extends React.Component {
                 </div>
                 <form className="form-horizontal" >
                   <div className="col-xs-3"> 
-                    <input type="number" label="次数" labelClassName="col-xs-5" wrapperClassName="col-xs-7"  placeholder="0" onChange={this.setHarmonicOrder.bind(this)} max='8' min='2' />
+                    <input type="number" label="次数"  placeholder="0" onChange={this.setHarmonicOrder.bind(this)} max='8' min='2' />
                   </div>
                   <div className="col-xs-3"> 
-                    <input type="number" label="幅度" labelClassName="col-xs-5" wrapperClassName="col-xs-7"  placeholder="0" onChange={this.setHarmonicAmplitude.bind(this)} max='360' min='0'/>
+                    <input type="number" label="幅度"  placeholder="0" onChange={this.setHarmonicAmplitude.bind(this)} max='360' min='0'/>
                   </div>
                   <div className="col-xs-3"> 
-                    <input type="number" label="相位" labelClassName="col-xs-5" wrapperClassName="col-xs-7"  placeholder="0" onChange={this.setHarmonicPhase.bind(this)}/>
+                    <input type="number" label="相位"  placeholder="0" onChange={this.setHarmonicPhase.bind(this)}/>
                   </div>
                 </form>
               </div>

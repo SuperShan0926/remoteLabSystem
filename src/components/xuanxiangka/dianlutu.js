@@ -10,7 +10,7 @@ class Dianlutu extends React.Component {
         this.displayName = 'Dianlutu';
     }
     render() {
-    	return <Circuitdia host='http://192.168.3.28:8001/REMTdevice/Board/101_Opamp/' bgsrc='http://localhost:3000/img/circuitdia/circuitdia.png'/>
+    	return <Circuitdia host='http://192.168.3.28:8001/REMTdevice/Board/101_Opamp/' bgsrc='/img/circuitdia/circuitdia.png'/>
     }
 }
 

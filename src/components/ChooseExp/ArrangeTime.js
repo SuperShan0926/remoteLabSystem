@@ -14,7 +14,7 @@ class ArrangeTime extends React.Component {
     postData(){
         if(this.slot){
             var data = this.slot;
-            agent.post("http://localhost:3000/postAppointment").send(data).then(res=>{
+            agent.post("/postAppointment").send(data).then(res=>{
                 console.log(res.body);
             });
         }else{

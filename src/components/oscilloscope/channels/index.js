@@ -16,7 +16,7 @@ export default class Channels extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.data = nextProps.data;
+    if(!nextProps){this.data = nextProps.data;}
     this.forceUpdate();
   }
 

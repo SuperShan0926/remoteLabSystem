@@ -14,7 +14,7 @@ class NeedRender extends React.Component {
         var bd = this.buildPostData(expId,timeSlot,event);
     	if(event.target.className === 'hasOrdered'){
             let ee = event.target;
-            agent.del('http://localhost:3000/order/').send(bd).then(res=>{
+            agent.del('/order/').send(bd).then(res=>{
                 ee.className = 'arrange_time';
                 alert('删除成功');
             }).catch(err=>{
@@ -23,7 +23,7 @@ class NeedRender extends React.Component {
     	}
     	else if(event.target.className === 'arrange_time'){
             let ee = event.target;
-             agent.post('http://localhost:3000/order/').send(bd).then(res=>{
+             agent.post('/order/').send(bd).then(res=>{
                 if(res.body.studentID){
                     ee.className = 'hasOrdered';
                     alert('预约成功');
@@ -60,7 +60,7 @@ class NeedRender extends React.Component {
         PubSub.subscribe( 'expArrange'+expId, function(m, data){
         debugger;
         ExpList = [];
-        agent.get('http://localhost:3000/exp/time/'+data+'/'+expId).then(res=>{
+        agent.get('/exp/time/'+data+'/'+expId).then(res=>{
             that.setState({ExpList:res.body,ExpDate:data});
              });
         });

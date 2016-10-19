@@ -13,22 +13,20 @@ class Yiqi extends React.Component {
 
     saveOsc(osc) {
     	this.Data.osc = osc;
-    	console.log('oooooccccccc',this.Data);
     }
 
     saveSig(sig) {
         this.Data.sig = sig;
-        console.log('ssssssgggggg',this.Data);
     }
 
     saveData(){
-        agent.post('http://localhost:3000/postdata/'+this.props.id).send(this.Data).then(res=>{
+        agent.post('/postdata/'+this.props.id).send(this.Data).then(res=>{
             console.log('mmmmmm',res.body);
         });
     }
 
     applyEnv(){
-        agent.get('http://localhost:3000/data/'+this.props.id).then(res=>{
+        agent.get('/data/'+this.props.id).then(res=>{
             this.Data = res.body;
             this.forceUpdate();
         });
@@ -46,11 +44,11 @@ class Yiqi extends React.Component {
             className='btn btn-success'
             onClick={this.applyEnv.bind(this)}
             >恢复现场</button>
-        {/*<Oscilloscope host='http://192.168.3.28:8001/REMTdevice/Digital_Scope/RIGOL/DS2000A/' save={this.saveOsc.bind(this)}/>*/}
-        <Oscilloscope host='http://localhost:3000/angal' save={this.saveOsc.bind(this)} data={this.Data.osc}/>
+        <Oscilloscope host='http://192.168.3.28:8001/REMTdevice/Digital_Scope/RIGOL/DS2000A/' save={this.saveOsc.bind(this)}/>
+        {/*<Oscilloscope host='/angal' save={this.saveOsc.bind(this)} data={this.Data.osc}/>*/}
         <DpCtrl host='http://192.168.3.28:8001/REMTdevice/Power/RIGOL/DP832/'/>
-        <SignalGenerator name='函数信号发生器' host='http://localhost:3000/angal' save={this.saveSig.bind(this)} data={this.Data.sig}/>
-        {/*<SignalGenerator host='http://192.168.3.28:8001/REMTdevice/Power/RIGOL/DP832/' save={this.saveSig.bind(this)}/>*/}
+        {/*<SignalGenerator name='函数信号发生器' host='/angal' save={this.saveSig.bind(this)} data={this.Data.sig}/>*/}
+        <SignalGenerator name='函数信号发生器' host='http://192.168.3.28:8001/REMTdevice/Power/RIGOL/DP832/' save={this.saveSig.bind(this)} data={this.Data.sig}/>
         </div>
     }
 }

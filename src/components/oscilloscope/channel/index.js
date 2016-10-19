@@ -31,7 +31,6 @@ export default class Channel extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.data){
-      debugger;
       this.channelControl(nextProps.data.channelControl);
       this.channelInvert(nextProps.data.channelInvert);
       this.setVerticalOffset(nextProps.data.verticalOffset);
@@ -86,8 +85,6 @@ export default class Channel extends React.Component {
 
   //C_V1
   channelControl(value){
-    console.log('channelControl',value);
-    debugger;
     const {host,name}=this.props;
     agent.post(host+'/DS-CHANnel?Channel='+name+'&State='+value).then(res => {
       this.setState({'channelControl':value});
@@ -96,7 +93,6 @@ export default class Channel extends React.Component {
 
     //C_V2
   channelInvert(value){
-    console.log('channelInvert',value);
     const {host,name}=this.props;
     agent.post(host+'/DS-INVert?Channel='+name+'&INVert='+value).then(res => {
       this.setState({'channelInvert':value});

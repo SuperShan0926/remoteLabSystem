@@ -7,10 +7,11 @@ var moment=require('moment');
 var debug = require('debug')('exp:route');
 
 router.get('/',function (req,res) {
-	if(req.session.user){ 
-		return res.redirect('/public/index.html');}
-	res.redirect('/user/login');
+		if(req.session.user){ 
+			return res.redirect('/index.html');}
+	res.redirect('/login.html');
 });
+
 router.get('/course', function(req, res, next) {
 
  async(function(){

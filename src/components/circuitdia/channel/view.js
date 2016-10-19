@@ -4,7 +4,7 @@ require('./channel.less');
 export default class ChannelView extends React.Component {
   static propTypes = {
     changeValue: React.PropTypes.func,
-    portarray:React.PropTypes.object,
+    portarray:React.PropTypes.array,
   };
 
   constructor(props) {
@@ -35,7 +35,7 @@ export default class ChannelView extends React.Component {
             <div className="col-xs-8">
               <select id='ch1' onChange={this.handleChange.bind(this)}>
               {
-                this.props.portarray.map(m=><option value ={m.num}>{m.num}</option>)
+                this.props.portarray.map((m,i)=><option value ={m.num} key={m.num+'1111'+i}>{m.num}</option>)
               }
               </select>
             </div>
@@ -43,7 +43,7 @@ export default class ChannelView extends React.Component {
             <div className="col-xs-8">
               <select id='ch2' onChange={this.handleChange.bind(this)}>
               {
-                this.props.portarray.map(m=><option value ={m.num}>{m.num}</option>)
+                this.props.portarray.map((m,i)=><option value ={m.num} key={m.num+'2222'+i}>{m.num}</option>)
               }
               </select>
             </div>

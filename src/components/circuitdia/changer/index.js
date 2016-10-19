@@ -35,6 +35,4 @@ export default class Changer extends React.Component {
     var value = (this.props.property.status)?'ON':'OFF';
     this.setChangerValue(value);
   }
-  componentWillUnmount() {
-  }
 }

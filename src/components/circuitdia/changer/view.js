@@ -17,7 +17,6 @@ export default class ChangerView extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // console.log('componentWillReceiveProps',nextProps);
     this.setState(nextProps);
   }
 

@@ -6,7 +6,7 @@ import PubSub from 'pubsub-js';
 import Oscilloscope from '../oscilloscope';
 import Circuitdia from '../circuitdia';
 import moment from 'moment';
-import Count from './CountdownTimer';
+// import Count from './CountdownTimer';
 var agent = require('superagent-promise')(require('superagent'), Promise);
 
 
@@ -19,13 +19,11 @@ class DoExp extends React.Component {
 
     save(osc) {
     	this.expData = osc;
-    	console.log('oooooccccccc',this.expData);
     }
 
     postData(){
     	if(this.expData.wave){
-    		alert('????');
-    		agent.post('http://localhost:3000/saveData/stuId')
+    		agent.post('/saveData/stuId')
     			 .send(this.expData)
     			 .then(res=>{
     			 	alert('数据提交完成!');
@@ -50,7 +48,7 @@ class DoExp extends React.Component {
 	        				<input type="radio"  name="doExp" id="tabA_abc" defaultChecked/>
 					          <label htmlFor="tabA_abc">示波器</label>
 					          <div id="tab-contentA_abc" className="tab-content_abc animated fadeIn">
-					          		<Oscilloscope host='http://localhost:3000/angal' save={this.save.bind(this)}/>
+					          		<Oscilloscope host='/angal' save={this.save.bind(this)}/>
 					          		<button onClick={this.postData.bind(this)}>保存数据</button>
 					          </div>
 					       </li>
@@ -64,7 +62,7 @@ class DoExp extends React.Component {
 					          <input type="radio"  name="doExp" id="tabC_abc" />
 					          <label htmlFor="tabC_abc">电路图</label>
 					          <div id="tab-contentC_abc" className="tab-content_abc animated fadeIn">
-					          	{/*<Circuitdia host='http://localhost:3000/' bgsrc='http://localhost:3000/components/circuitdia/circuitdia.png'/>*/}
+					          	{/*<Circuitdia host='/' bgsrc='/components/circuitdia/circuitdia.png'/>*/}
 					          </div>
 					       </li>
 							<li>

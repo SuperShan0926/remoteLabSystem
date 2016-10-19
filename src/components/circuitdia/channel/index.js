@@ -8,7 +8,7 @@ export default class Channel extends React.Component {
     changeValue:React.PropTypes.func,
     host: React.PropTypes.string,
     property:React.PropTypes.object,
-    portarray:React.PropTypes.object,
+    portarray:React.PropTypes.array,
   };
 
   constructor(props) {

@@ -25,15 +25,13 @@ router.post('/login', function(req, res, next) {
 });
 
 router.get('/',function (req,res) {
-	console.log(req.session);
 	res.send(req.session.user);
 	res.end();
 });
 
 router.get('/logout',function (req,res) {
-	console.log(req.session);
 	req.session.user = null;
-	res.end();
+	res.redirect('/');
 });
 
 
@@ -41,7 +39,6 @@ router.post('/register', function(req, res) {
 	var username = req.body.username,
 		md5 = crypto.createHash('md5'),
 		password = md5.update(req.body.password).digest('hex');
-		console.log(username,password);
 	 async(function(){
 	 			var result = await(DB.user.findAsync({username:username}));
 	 			if(result[0]){
@@ -54,7 +51,6 @@ router.post('/register', function(req, res) {
 				req.session.user =  newUser;
 				console.log(newUser);
 				await(DB.user.insertAsync(newUser));
-				console.log('??????');
 					res.send('注册成功');
 					res.end();
   })();

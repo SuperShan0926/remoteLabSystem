@@ -312,7 +312,6 @@ export default class Circuitdia extends React.Component {
   }*/
 
   setMeasureportStatus(ch1,ch2){
-    debugger;
     this.state.marray.map(m=> {
       if(m.num == ch1){
         m.status=true;
@@ -379,13 +378,13 @@ export default class Circuitdia extends React.Component {
         <div className='circuitdia'>
           <img src={this.props.bgsrc}/>
           {
-             this.state.karray.map(k=><Changer host={host} property={k}/>)
+             this.state.karray.map((k,i)=><Changer host={host} property={k} key={k+i}/>)
           }
           {
-            this.state.rarray.map(r=><Rheostat host={host} property={r}/>)
+            this.state.rarray.map((r,i)=><Rheostat host={host} property={r} key={r+i}/>)
           }
           {
-            this.state.marray.map(m=> <Measureport host={host} property={m}/>)
+            this.state.marray.map((m,i)=> <Measureport host={host} property={m} key={m+i}/>)
           }
 
           <Channel host={host} property={this.state.channel} portarray={this.state.marray} changeValue={this.setMeasureportStatus.bind(this)}/>

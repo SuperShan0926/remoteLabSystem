@@ -16,11 +16,10 @@ export default class Chans extends React.Component {
       this.forceUpdate();
     }     
   }
-  render() {
-    console.log("props-in-chans",this.props);
+  render() {  
     return (
       <div className='chans'>
-        <Tabs defaultActiveKey={2}>
+        <Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
           <Tab eventKey={1} title="CH1">
             <Chan name='CHAN1' host={this.props.host} save={this.saveChan1.bind(this)} data={this.data.ch1}/>
           </Tab>
