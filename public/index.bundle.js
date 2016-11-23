@@ -44467,9 +44467,9 @@ webpackJsonp([0],[
 	                    },
 	                    '恢复现场'
 	                ),
-	                _react2.default.createElement(_oscilloscope2.default, { host: 'http://192.168.3.28:8001/REMTdevice/Digital_Scope/RIGOL/DS2000A/', save: this.saveOsc.bind(this) }),
+	                _react2.default.createElement(_oscilloscope2.default, { host: '/angal', save: this.saveOsc.bind(this), data: this.Data.osc }),
 	                _react2.default.createElement(_dpctrl2.default, { host: 'http://192.168.3.28:8001/REMTdevice/Power/RIGOL/DP832/' }),
-	                _react2.default.createElement(_signalGenerator2.default, { name: '函数信号发生器', host: 'http://192.168.3.28:8001/REMTdevice/Power/RIGOL/DP832/', save: this.saveSig.bind(this), data: this.Data.sig })
+	                _react2.default.createElement(_signalGenerator2.default, { name: '函数信号发生器', host: '/angal', save: this.saveSig.bind(this), data: this.Data.sig })
 	            );
 	        }
 	    }]);
@@ -44507,7 +44507,7 @@ webpackJsonp([0],[
 
 	var _channels2 = _interopRequireDefault(_channels);
 
-	var _trig = __webpack_require__(807);
+	var _trig = __webpack_require__(806);
 
 	var _trig2 = _interopRequireDefault(_trig);
 
@@ -86857,7 +86857,7 @@ webpackJsonp([0],[
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(805);
+	__webpack_require__(804);
 
 	var Channels = function (_React$Component) {
 	  _inherits(Channels, _React$Component);
@@ -87407,6 +87407,373 @@ webpackJsonp([0],[
 /***/ },
 /* 803 */,
 /* 804 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 805 */,
+/* 806 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(72);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _view = __webpack_require__(807);
+
+	var _view2 = _interopRequireDefault(_view);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(808);
+	var agent = __webpack_require__(352)(__webpack_require__(353), Promise);
+
+	var Trig = function (_React$Component) {
+	  _inherits(Trig, _React$Component);
+
+	  function Trig(props) {
+	    _classCallCheck(this, Trig);
+
+	    var _this = _possibleConstructorReturn(this, (Trig.__proto__ || Object.getPrototypeOf(Trig)).call(this, props));
+
+	    _this.state = {
+	      mode: 'EDGE',
+	      source: 'EDGE'
+	    };
+	    return _this;
+	  }
+
+	  _createClass(Trig, [{
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      if (nextProps.data) {
+	        this.setState({ mode: nextProps.data.mode, source: nextProps.data.source });
+	        this.forceUpdate();
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      this.props.save(this.state);
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'trig' },
+	        _react2.default.createElement(_view2.default, { changeMode: this.setmode.bind(this), changeSource: this.setsource.bind(this) })
+	      );
+	    }
+	  }, {
+	    key: 'setmode',
+	    value: function setmode(value) {
+	      var _this2 = this;
+
+	      console.log('setmode', value);
+	      var host = this.props.host;
+
+	      agent.post(host + '/DS-TRIGmode?Tmode=' + value).then(function (res) {
+	        _this2.setState({ 'mode': value });
+	      });
+	    }
+	  }, {
+	    key: 'setsource',
+	    value: function setsource(value) {
+	      var _this3 = this;
+
+	      console.log('setsource', value);
+	      var host = this.props.host;
+	      var mode = this.state.mode;
+
+	      agent.post(host + '/DS-TRIGsource?TSource=' + value).then(function (res) {
+	        _this3.setState({ 'source': value });
+	      });
+	    }
+	  }]);
+
+	  return Trig;
+	}(_react2.default.Component);
+
+	Trig.propTypes = {
+	  name: _react2.default.PropTypes.string,
+	  save: _react2.default.PropTypes.func
+	};
+	exports.default = Trig;
+
+/***/ },
+/* 807 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(72);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactBootstrap = __webpack_require__(443);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(808);
+
+	var Rx = __webpack_require__(810);
+
+	var TrigView = function (_React$Component) {
+	  _inherits(TrigView, _React$Component);
+
+	  function TrigView(props) {
+	    _classCallCheck(this, TrigView);
+
+	    return _possibleConstructorReturn(this, (TrigView.__proto__ || Object.getPrototypeOf(TrigView)).call(this, props));
+	  }
+
+	  _createClass(TrigView, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          _reactBootstrap.Label,
+	          null,
+	          'trig'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'row' },
+	          _react2.default.createElement('div', { className: 'col-xs-1' }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col-xs-3' },
+	            'Mode'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col-xs-4' },
+	            _react2.default.createElement(
+	              'select',
+	              { name: 'select', onChange: this.changeMode.bind(this) },
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'EDGE'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'PULS'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'RUNT'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'NEDG'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'SLOP'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'PATT'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'RS232'
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'row' },
+	          _react2.default.createElement('div', { className: 'col-xs-1' }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col-xs-3' },
+	            'Source'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col-xs-4' },
+	            _react2.default.createElement(
+	              'select',
+	              { name: 'select', onChange: this.changeSource.bind(this) },
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'CHAN1'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'CHAN2'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'EXT'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D0'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D1'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D2'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D3'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D4'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D5'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D6'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D7'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D8'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D9'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D10'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D11'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D12'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D13'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D14'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'D15'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'ACL'
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }, {
+	    key: 'changeMode',
+	    value: function changeMode(evt) {
+	      var mymode = evt.target.value;
+	      console.log('mymode', mymode);
+	      if (this.props.changeMode) {
+	        this.props.changeMode(mymode);
+	      }
+	    }
+	  }, {
+	    key: 'changeSource',
+	    value: function changeSource(evt) {
+	      var mysource = evt.target.value;
+	      console.log('mysource', mysource);
+	      if (this.props.changeSource) {
+	        this.props.changeSource(mysource);
+	      }
+	    }
+	  }]);
+
+	  return TrigView;
+	}(_react2.default.Component);
+
+	TrigView.propTypes = {
+	  changeMode: _react2.default.PropTypes.func,
+	  changeSource: _react2.default.PropTypes.func
+
+	};
+	exports.default = TrigView;
+
+/***/ },
+/* 808 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 809 */,
+/* 810 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global, process) {// Copyright (c) Microsoft, All rights reserved. See License.txt in the project root for license information.
@@ -99801,373 +100168,6 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(247)(module), (function() { return this; }()), __webpack_require__(74)))
 
 /***/ },
-/* 805 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 806 */,
-/* 807 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(72);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _view = __webpack_require__(808);
-
-	var _view2 = _interopRequireDefault(_view);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	__webpack_require__(809);
-	var agent = __webpack_require__(352)(__webpack_require__(353), Promise);
-
-	var Trig = function (_React$Component) {
-	  _inherits(Trig, _React$Component);
-
-	  function Trig(props) {
-	    _classCallCheck(this, Trig);
-
-	    var _this = _possibleConstructorReturn(this, (Trig.__proto__ || Object.getPrototypeOf(Trig)).call(this, props));
-
-	    _this.state = {
-	      mode: 'EDGE',
-	      source: 'EDGE'
-	    };
-	    return _this;
-	  }
-
-	  _createClass(Trig, [{
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(nextProps) {
-	      if (nextProps.data) {
-	        this.setState({ mode: nextProps.data.mode, source: nextProps.data.source });
-	        this.forceUpdate();
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      this.props.save(this.state);
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'trig' },
-	        _react2.default.createElement(_view2.default, { changeMode: this.setmode.bind(this), changeSource: this.setsource.bind(this) })
-	      );
-	    }
-	  }, {
-	    key: 'setmode',
-	    value: function setmode(value) {
-	      var _this2 = this;
-
-	      console.log('setmode', value);
-	      var host = this.props.host;
-
-	      agent.post(host + '/DS-TRIGmode?Tmode=' + value).then(function (res) {
-	        _this2.setState({ 'mode': value });
-	      });
-	    }
-	  }, {
-	    key: 'setsource',
-	    value: function setsource(value) {
-	      var _this3 = this;
-
-	      console.log('setsource', value);
-	      var host = this.props.host;
-	      var mode = this.state.mode;
-
-	      agent.post(host + '/DS-TRIGsource?TSource=' + value).then(function (res) {
-	        _this3.setState({ 'source': value });
-	      });
-	    }
-	  }]);
-
-	  return Trig;
-	}(_react2.default.Component);
-
-	Trig.propTypes = {
-	  name: _react2.default.PropTypes.string,
-	  save: _react2.default.PropTypes.func
-	};
-	exports.default = Trig;
-
-/***/ },
-/* 808 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(72);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactBootstrap = __webpack_require__(443);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	__webpack_require__(809);
-
-	var Rx = __webpack_require__(804);
-
-	var TrigView = function (_React$Component) {
-	  _inherits(TrigView, _React$Component);
-
-	  function TrigView(props) {
-	    _classCallCheck(this, TrigView);
-
-	    return _possibleConstructorReturn(this, (TrigView.__proto__ || Object.getPrototypeOf(TrigView)).call(this, props));
-	  }
-
-	  _createClass(TrigView, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          _reactBootstrap.Label,
-	          null,
-	          'trig'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'row' },
-	          _react2.default.createElement('div', { className: 'col-xs-1' }),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-xs-3' },
-	            'Mode'
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-xs-4' },
-	            _react2.default.createElement(
-	              'select',
-	              { name: 'select', onChange: this.changeMode.bind(this) },
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'EDGE'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'PULS'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'RUNT'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'NEDG'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'SLOP'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'PATT'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'RS232'
-	              )
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'row' },
-	          _react2.default.createElement('div', { className: 'col-xs-1' }),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-xs-3' },
-	            'Source'
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-xs-4' },
-	            _react2.default.createElement(
-	              'select',
-	              { name: 'select', onChange: this.changeSource.bind(this) },
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'CHAN1'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'CHAN2'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'EXT'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D0'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D1'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D2'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D3'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D4'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D5'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D6'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D7'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D8'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D9'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D10'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D11'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D12'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D13'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D14'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'D15'
-	              ),
-	              _react2.default.createElement(
-	                'option',
-	                null,
-	                'ACL'
-	              )
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }, {
-	    key: 'changeMode',
-	    value: function changeMode(evt) {
-	      var mymode = evt.target.value;
-	      console.log('mymode', mymode);
-	      if (this.props.changeMode) {
-	        this.props.changeMode(mymode);
-	      }
-	    }
-	  }, {
-	    key: 'changeSource',
-	    value: function changeSource(evt) {
-	      var mysource = evt.target.value;
-	      console.log('mysource', mysource);
-	      if (this.props.changeSource) {
-	        this.props.changeSource(mysource);
-	      }
-	    }
-	  }]);
-
-	  return TrigView;
-	}(_react2.default.Component);
-
-	TrigView.propTypes = {
-	  changeMode: _react2.default.PropTypes.func,
-	  changeSource: _react2.default.PropTypes.func
-
-	};
-	exports.default = TrigView;
-
-/***/ },
-/* 809 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 810 */,
 /* 811 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -100342,7 +100342,7 @@ webpackJsonp([0],[
 
 	__webpack_require__(816);
 
-	var Rx = __webpack_require__(804);
+	var Rx = __webpack_require__(810);
 
 	var SweepView = function (_React$Component) {
 	  _inherits(SweepView, _React$Component);
